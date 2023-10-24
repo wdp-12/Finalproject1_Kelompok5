@@ -6,11 +6,9 @@
   background-color: #159895;
 }
 
-.Logo {
-  width: 284px;
-  height: 189px;
+.my-secondary {
+  color: #002b5b;
 }
-
 .my-btn {
   background-color: #1a5f7a;
   border-radius: 10px;
@@ -24,10 +22,6 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-}
-
-.my-btn i {
-  margin-right: 10px;
 }
 
 .my-btn:hover {
