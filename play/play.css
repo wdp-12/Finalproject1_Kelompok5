@@ -1,0 +1,27 @@
+*
+
+.body{
+    padding: 90px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-primary {
+    background-color: #159895;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: 50px repeat (3, 70px) 60px;
+    gap: 5px; 
+}
+
+.grid div{
+    height: 70px;
+    width: 70px;
+    background-color: #002B5B;
+    margin: 5px;
+}
