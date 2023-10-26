@@ -46,12 +46,11 @@
 
   .tic-tac-toe-cell{
     background-color: #1a5f7a;
-    width: 152px;
-    height: 153px;
+    height: 120px;
     flex-shrink: 0;
     border-style: none;
-    border: 5px solid white;
-    border-radius: 20px;
+    border: 3px solid white;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +58,7 @@
   }
   
   .col-4.tic-tac-toe-cell img{
-    width: 69px;
+    width: 65px;
     height: 80px;
   }
   
