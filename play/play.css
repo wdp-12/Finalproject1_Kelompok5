@@ -1,68 +1,131 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #159895;
+}
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style: none;
-  font-family: "Montserrat", sans-serif;
+section {
+  text-align: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 5px solid white;
+  background-color: #002B5B;
+  border-radius: 15px;
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 60px;
+}
+
+.game--title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  margin: 20px auto;
+}
+
+.game--container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 306px;
+  margin: 10px auto;
+  border-radius: 15px;
+  color: #04c0b2;
+}
+
+.player {   
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 306px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+.player #cell1 p{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 15px;
+  padding-top: 30px;
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+.player #cell2 p{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 25px;
+  padding-top: 30px;
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+.game--container .cell img{
+  position: relative;
+  margin-bottom: 30px;
+}
+#cell1 {
+  background-color: #1A5F7A;
   border: none;
 }
-
-.my-primary{
-    background-color: #159895;
+#cell1 img{
+  margin-bottom: 30px;
 }
- 
+#cell2 {
+  margin-left: 110px;
+  background-color: #1A5F7A;
+  border: none;
+}
+#cell2 img{
+  margin-bottom: 30px;
+}
+#cell3 {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+#cell4 {
+  margin-right: 5px;
+}
+#cell6 {
+  margin-bottom: 5px;
+}
+.score p{
+  margin-left: 725px;
+  position: absolute;
+  margin-top: 35px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
 
-body {
-  padding: 90px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.btn-main, .btn-home {
+  background-color: #1A5F7A;
+}
+.btn-main:hover {
+  background-color: #002B5B;
+  color: white;
+}
+.btn-home:hover {
+  background-color: #002B5B;
+  color: white;
+}
+.modal-footer button{
+  color: white;
+}
+#myModal .modal-content{
   align-items: center;
+  background-color: #57C5B6;
 }
-
-/* Shared utility classes */
-
-button:hover {
-  cursor: pointer;
-  opacity: 90%;
+.modal-title {
+  font-weight: bold;
+  color: white;
 }
-
-.shadow {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.btn-primary {
+  background-color: #1A5F7A;
 }
-
-.border {
-  border: 1px solid rgba(211, 211, 211, 0.4) !important;
+.btn-primary:hover {
+  background-color: #002B5B;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 80px);
-  grid-template-rows: 50px repeat(3, 80px) 60px;
-  gap: 5px;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    width: 490px;
-    grid-template-columns: repeat(3, 150px);
-    grid-template-rows: 50px repeat(3, 150px) 60px;
-    gap: 20px;
-  }
-}
-
-.turn {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  align-self: center;
-
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-
-
