@@ -1,64 +1,131 @@
-* {
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .my-primary {
-    background-color: #159895;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #159895;
+}
 
-  .top-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  } 
-  
-  .X,
-  .O{
-    width: 69px;
-    height: 80px;
-  }
+section {
+  text-align: center;
+  align-items: center;
+  margin-top: 80px;
+}
 
-  .text{
-    color: white;
-    font-weight: 700;
-    font-size: 36px;
-    text-align: center;
-  }
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 5px solid white;
+  background-color: #002B5B;
+  border-radius: 15px;
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 60px;
+}
 
-  .player {
-    background-color: #1a5f7a;
-    border-radius: 10px;
-    color: white;
-    border-style: none;
-    font-size: 16px;
-    font-weight: 700;
-    width: 152px;
-    height: 153px;
-    font-style: normal;
-    line-height: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+.game--title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  margin: 20px auto;
+}
 
-  .tic-tac-toe-cell{
-    background-color: #1a5f7a;
-    height: 120px;
-    flex-shrink: 0;
-    border-style: none;
-    border: 3px solid white;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .col-4.tic-tac-toe-cell img{
-    width: 65px;
-    height: 80px;
-  }
-  
+.game--container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 306px;
+  margin: 10px auto;
+  border-radius: 15px;
+  color: #04c0b2;
+}
+
+.player {   
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 306px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+.player #cell1 p{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 15px;
+  padding-top: 30px;
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+.player #cell2 p{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 25px;
+  padding-top: 30px;
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+.game--container .cell img{
+  position: relative;
+  margin-bottom: 30px;
+}
+#cell1 {
+  background-color: #1A5F7A;
+  border: none;
+}
+#cell1 img{
+  margin-bottom: 30px;
+}
+#cell2 {
+  margin-left: 110px;
+  background-color: #1A5F7A;
+  border: none;
+}
+#cell2 img{
+  margin-bottom: 30px;
+}
+#cell3 {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+#cell4 {
+  margin-right: 5px;
+}
+#cell6 {
+  margin-bottom: 5px;
+}
+.score p{
+  margin-left: 725px;
+  position: absolute;
+  margin-top: 35px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.btn-main, .btn-home {
+  background-color: #1A5F7A;
+}
+.btn-main:hover {
+  background-color: #002B5B;
+  color: white;
+}
+.btn-home:hover {
+  background-color: #002B5B;
+  color: white;
+}
+.modal-footer button{
+  color: white;
+}
+#myModal .modal-content{
+  align-items: center;
+  background-color: #57C5B6;
+}
+.modal-title {
+  font-weight: bold;
+  color: white;
+}
+.btn-primary {
+  background-color: #1A5F7A;
+}
+.btn-primary:hover {
+  background-color: #002B5B;
+}
