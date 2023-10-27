@@ -1,2 +1,7 @@
 # Finalproject1_Kelompok5
-tic-tac-toe
+Tic-Tac-Toe
+
+# Menu
+- VS Computer
+- VS Local Multiplayer
+- History Game
