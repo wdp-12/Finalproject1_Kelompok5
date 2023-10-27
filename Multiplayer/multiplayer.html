@@ -3,33 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic Tac Toe</title>
+    <title>Document</title>
     <link rel="stylesheet" href="multiplayer.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/c021263beb.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
   </head>
-  <body class="my-primary">
-    <div class="container-lg d-flex align-items-center justify-content-center" style="height: 100vh">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="d-flex justify-content-center mb-4">
-            <h3 class="fw-bold text-white"><i class="fa-solid fa-user-group"></i> Local Multiplayer</h3>
-          </div>
-          <div class="mb-4">
-            <h6 class="fw-bold my-secondary text-center mb-3">Masukkan Nama Player 1 (X)</h6>
-            <input class="form-control text-center" type="text" placeholder="Player 1" aria-label="default input example" />
-          </div>
-          <div class="mb-5">
-            <h6 class="fw-bold my-secondary text-center mb-3">Masukkan Nama Player 2 (O)</h6>
-            <input class="form-control text-center" type="text" placeholder="Player 2" aria-label="default input example" />
-          </div>
-          <div class="d-grid gap-3 col-12 mx-auto d-flex flex-column justify-content-center">
-            <a class="my-btn">Mulai</a>
-          </div>
+  <body>
+    <!-- Modal for Player Names -->
+    <div class="name-modal" data-id="name-modal">
+      <div class="name-modal-contents">
+        <h1><i class="fa-solid fa-user-group"></i> Local Multiplayer</h1>
+        <h2>Masukkan Nama Player</h2>
+        <p>Player 1 (X)</p>
+        <input type="text" id="player1Name" placeholder="Nama Player 1" />
+        <p>Player 2 (O)</p>
+        <input type="text" id="player2Name" placeholder="Nama Player 2" />
+        <p class="error-message" data-id="error-message"></p>
+        <button id="startGameBtn">Mulai</button>
+      </div>
+    </div>
+
+    <div>
+      <h1 class="title"><i class="fa-solid fa-user-group"></i> Local Multiplayer</h1>
+    </div>
+
+    <main>
+      <div class="grid-score">
+        <!-- Scoreboard -->
+        <div class="score" style="background-color: #271a7a; color: #ffffff">
+          <h6 data-id="p1-name">Player 1</h6>
+          <span data-id="p1-wins">0</span>
+          <p class="score-info">Menang</p>
+        </div>
+        <div class="score" style="background-color: #ffffff; color: #000000">
+          <p>Seri</p>
+          <span data-id="ties">0</span>
+        </div>
+        <div class="score" style="background-color: #ff6600; color: #ffffff">
+          <h6 data-id="p2-name">Player 2</h6>
+          <span data-id="p2-wins">0</span>
+          <p class="score-info">Menang</p>
+        </div>
+      </div>
+
+      <!-- Turn indicator -->
+      <div class="turn" data-id="turn">
+        <img src="../asset/X.png" alt="" />
+        <p class="">Giliran Player 1</p>
+      </div>
+
+      <div class="grid" data-id="grid">
+        <!-- Game board -->
+        <div id="1" class="square" data-id="square"></div>
+        <div id="2" class="square" data-id="square"></div>
+        <div id="3" class="square" data-id="square"></div>
+        <div id="4" class="square" data-id="square"></div>
+        <div id="5" class="square" data-id="square"></div>
+        <div id="6" class="square" data-id="square"></div>
+        <div id="7" class="square" data-id="square"></div>
+        <div id="8" class="square" data-id="square"></div>
+        <div id="9" class="square" data-id="square"></div>
+      </div>
+    </main>
+
+    <!-- Modal that opens when game ends -->
+    <div class="modal hidden" data-id="modal">
+      <div class="modal-contents">
+        <p data-id="modal-text">Player 1 Menang</p>
+        <div class="button-group">
+          <a data-id="modal-btn">Play Again</a>
+          <a data-id="new-round-btn" class="back-home-btn" href="../index.html">Back Home</a>
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>
