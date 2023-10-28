@@ -158,26 +158,81 @@
 
     .square:hover {
         cursor: pointer;
+        opacity: 90%;
       }
-   
-    .score h6 {
-        font-size: 10px;
-        font-weight: 700;
-        margin-bottom: 2px;
-      }
-    
-    .score p {
-        font-size: 10px;
-        font-weight: 500;
-        margin-top: 2px;
-      }
-
-      .square img {
+  
+    .square img {
         width: 70px;
       }
-      
-      /* grid score */
-.grid-score {
+
+    .modal{
+      padding-top: 50px;
+      position: fixed;
+      top: 0;
+      left: 0:
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .modal-contents {
+      height: 280px;
+      width: 100%;
+      max-width: 350px;
+      background-color: #002b5b;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      color: white;
+      margin: 10px;
+      font-weight: bold;
+    }
+    .modal-contents p {
+      font-size: 20px;
+    }
+    .modal-contents img {
+      width: 100px;
+    }
+    
+    p[data-id="modal-text"] {
+      text-align: center;
+    }
+    
+    p[data-id="modal-text"] img {
+      display: block;
+      margin: 20px auto 0;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+    .modal-contents a {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #57c5b6;
+      color: #ffffff;
+      border-radius: 5px;
+      width: 130px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+    
+    .modal-contents a:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+  /* grid score */
+  .grid-score {
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(1, 100px);
@@ -185,7 +240,7 @@
   margin-bottom: 50px;
 }
 
-.score {
+  .score {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,29 +248,29 @@
   border-radius: 10px;
 }
 
-.score h6 {
+  .score h6 {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.score span {
+  .score span {
   font-weight: bold;
 }
 
-.score p {
+  .score p {
   font-size: 14px;
   font-weight: 500;
   margin-top: 5px;
 }
 
-.score span {
+  .score span {
   font-size: 12px;
   margin-top: 2px;
 }
 
 /* turn */
-.turn {
+  .turn {
   justify-content: center;
   align-self: center;
   display: flex;
@@ -255,70 +310,5 @@
   width: 80px;
   animation: 0.6s ease-in-out turn-icon-animation;
 }
-
-      .modal {
-        padding-top: 50px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-      }
       
-      .modal-contents {
-        height: 280px;
-        width: 100%;
-        max-width: 350px;
-        background-color: #002b5b;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        color: white;
-        margin: 10px;
-        font-weight: bold;
-      }
-      .modal-contents p {
-        font-size: 20px;
-      }
-      .modal-contents img {
-        width: 100px;
-      }
-      
-      p[data-id="modal-text"] {
-        text-align: center;
-      }
-      
-      p[data-id="modal-text"] img {
-        display: block;
-        margin: 20px auto 0;
-      }
-      
-      .button-group {
-        display: flex;
-        gap: 10px;
-      }
-      .modal-contents a {
-        margin-top: 10px;
-        padding: 10px;
-        background-color: #57c5b6;
-        color: #ffffff;
-        border-radius: 5px;
-        width: 130px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-      }
-      
-      .modal-contents a:hover {
-        background-color: #ffffff;
-        color: #000000;
-      }
-      
+ 

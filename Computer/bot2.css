@@ -232,7 +232,7 @@
     }
     
   /* grid score */
-.grid-score {
+  .grid-score {
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(1, 100px);
@@ -240,7 +240,7 @@
   margin-bottom: 50px;
 }
 
-.score {
+  .score {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -248,29 +248,29 @@
   border-radius: 10px;
 }
 
-.score h6 {
+  .score h6 {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.score span {
+  .score span {
   font-weight: bold;
 }
 
-.score p {
+  .score p {
   font-size: 14px;
   font-weight: 500;
   margin-top: 5px;
 }
 
-.score span {
+  .score span {
   font-size: 12px;
   margin-top: 2px;
 }
 
 /* turn */
-.turn {
+  .turn {
   justify-content: center;
   align-self: center;
   display: flex;
