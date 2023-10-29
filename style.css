@@ -11,14 +11,20 @@
   height: 189px;
 }
 
+.my-btn-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
+}
+
 .my-btn {
   background-color: #1a5f7a;
   border-radius: 10px;
   color: white;
   border: none;
   font-size: 15px;
-  width: 100%;
-  height: 50px;
+  width: 70%;
+  height: 60px;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -26,6 +32,11 @@
   text-decoration: none;
 }
 
+@media (min-width: 1000px) {
+  .my-btn {
+    width: 20%;
+  }
+}
 .my-btn i {
   margin-right: 10px;
 }
