@@ -1,23 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .my-primary {
   background-color: #159895;
 }
+
+.X{
+  width: 97px;
+  height: 112px;
+}
+
+.O{
+  width: 97px;
+  height: 112px;
+}
 .my-btn {
   background-color: #1a5f7a;
   border-radius: 10px;
   color: white;
-  border: none;
-  font-size: 15px;
-  width: 100%;
-  height: 50px;
-  font-weight: bold;
+  border-style: none;
+  font-size: 40px;
+  font-weight: 700;
+  width: 213px;
+  height: 215px;
+  font-style: normal;
+  line-height: normal;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-decoration: none;
+  justify-content: center;
+  text-align: center;
 }
 
 .my-btn:hover {
@@ -25,24 +41,7 @@
   color: #000000;
 }
 
-.option {
-  width: 60px;
-  height: 60px;
-}
-[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-[type="radio"] + img {
-  cursor: pointer;
-}
-
-[type="radio"]:checked + img {
-  border-radius: 5px;
-  padding: 10px;
-  background-color: white;
-  outline: 2px solid rgb(255, 255, 255);
+.title {
+  font-size: 50px;
+  color: #bbff00;
 }

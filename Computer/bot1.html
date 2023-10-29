@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bot1.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bot 1 </title>
+    <link rel="stylesheet" href="bot1.css" />
     <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
-    <title>Bot O</title>
-</head>
-<body>
-    <!-- Player and BOT Computer -->
+  </head>
+  <body>
+    <!-- Modal for Player Names -->
     <div class="name-modal" data-id="name-modal">
-        <div class="name-modal-contents">
-            <h1><i class="fa-solid fa-robot"></i>BOT Computer</h1>
-            <h2>Masukkan Nama Player</h2>
-            <p>Player (X)</p>
-            <input type="text" id ="playerName" placeholder="Nama Player"/>
-            <p> Computer (O)</p>
-            <p class="error-message" data-id="error-message"></p> 
-            <button type="startGameBtn">Mulai</button>    
-        </div>
+      <div class="name-modal-contents">
+        <h1><i class="fa-solid fa-robot"></i> BOT Computer</h1>
+        <h2>Masukkan Nama Player</h2>
+        <p>Player  (X)</p>
+        <input type="text" id="player1Name" placeholder="Nama Player" />
+        <p>Player  (O)</p>
+        <input type="text" id="player2Name" value="Computer" readonly/>
+        <p class="error-message" data-id="error-message"></p>
+
+        <button id="startGameBtn">Mulai</button>
+      </div>
     </div>
 
     <div>
-        <h1 class="title"><i class="fa-solid fa-robot"></i>BOT Computer</h1>
+      <h1 class="title"><i class="fa-solid fa-robot"></i> BOT Computer</h1>
     </div>
 
     <main>
-        <div class="grid-score"></div>
-        <div class="score" style="background-color: #271a7a; color: azure;">
-            <h6 data-id="p1-name">Player</h6>
-            <span data-id="p1-wins">0</span>
-            <p class="score-info">Menang</p>
+      <div class="grid-score">
+        <!-- Scoreboard -->
+        <div class="score" style="background-color: #271a7a; color: #ffffff">
+          <h6 data-id="p1-name">Player </h6>
+          <span data-id="p1-wins">0</span>
+          <p class="score-info">Menang</p>
         </div>
-        <div class="score" style="background-color: #ffffff; color: #000">
-        <p>Seri</p>
-        <span data-id="ties">0</span>
-    </div>
-    <div class="score" style="background-color: #ff6600; color: #ffffff">
-        <h6 data-id="p2-name">Computer</h6>
-        <span data-id="p2-wins">0</span>
-        <p class="score-info">Menang</p>
+        <div class="score" style="background-color: #ffffff; color: #000000">
+          <p>Seri</p>
+          <span data-id="ties">0</span>
+        </div>
+        <div class="score" style="background-color: #ff6600; color: #ffffff">
+          <h6 data-id="p2-name">Computer</h6>
+          <span data-id="p2-wins">0</span>
+          <p class="score-info">Menang</p>
+        </div>
       </div>
-    </div>
+
+      <!-- Turn indicator -->
       <div class="turn" data-id="turn">
-        <img src="/assetX.png" alt="">
-        <p class="">Giliran Bermain</p>
+        <img src="../asset/X.png" alt="" />
+        <p class="">Giliran Player </p>
       </div>
 
       <div class="grid" data-id="grid">
-        <!-- Board Tic Tac -->
+        <!-- Game board -->
         <div id="1" class="square" data-id="square"></div>
         <div id="2" class="square" data-id="square"></div>
         <div id="3" class="square" data-id="square"></div>
@@ -61,6 +66,7 @@
       </div>
     </main>
 
+    <!-- Modal that opens when game ends -->
     <div class="modal hidden" data-id="modal">
       <div class="modal-contents">
         <p data-id="modal-text">Player Menang</p>
@@ -71,6 +77,6 @@
       </div>
     </div>
 
-    <script src="index.js" type="module"></script>
-</body>
+    <script src="js/botscript.js" type="module"></script>
+  </body>
 </html>
