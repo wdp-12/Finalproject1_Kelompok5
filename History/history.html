@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="icon" href="../asset/Logo.png" />
+    <link rel="stylesheet" href="history.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/c021263beb.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="my-primary">
+    <div class="container d-flex flex-column align-items-center justify-content-center text-align-center" style="height: 100vh">
+      <div class="d-flex justify-content-center mb-3">
+        <h2 class="title fw-bold"><i class="fa-solid fa-clock-rotate-left me-3"></i> History Permainan</h2>
+      </div>
+      <div class="table history">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Nama Player 1</th>
+              <th scope="col">Menang Player 1</th>
+              <th scope="col">Seri</th>
+              <th scope="col">Menang Player 2</th>
+              <th scope="col">Nama Player 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-align-center">
+              <td scope="row" id="player1Name">-</td>
+              <td scope="row" id="p1Wins">0</td>
+              <td scope="row" id="ties">0</td>
+              <td scope="row" id="p2Wins">0</td>
+              <td scope="row" id="player2Name">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <a class="my-btn mt-3" href="../index.html">Kembali</a>
+    </div>
+
+    <script src="history.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>
