@@ -4,7 +4,6 @@ import View from "./view.js";
 function init() {
   // Check if the game is in progress based on local storage
   const gameInProgress = localStorage.getItem("gameInProgress") === "true";
-  const gameHistory = JSON.parse(localStorage.getItem("gameHistory")) || [];
 
   // "Model"
   const players = [
@@ -20,7 +19,7 @@ function init() {
     },
   ];
 
-  const store = new Store("game-state-key", players, gameHistory);
+  const store = new Store("game-state-key", players);
 
   // "View"
   const view = new View();
@@ -75,15 +74,6 @@ function init() {
     localStorage.setItem("gameInProgress", "true");
     localStorage.setItem("player1Name", players[0].name);
     localStorage.setItem("player2Name", players[1].name);
-
-    const gameData = {
-      player1Name: players[0].name,
-      player2Name: players[1].name,
-      p1Wins: 0,
-      p2Wins: 0,
-      ties: 0,
-    };
-    saveGameData(gameData);
   });
 
   view.bindGameResetEvent(() => {
@@ -111,14 +101,6 @@ function init() {
     } else {
       store.reset();
     }
-
-    saveGameData({
-      player1Name: "",
-      player2Name: "",
-      p1Wins: 0,
-      p2Wins: 0,
-      ties: 0,
-    });
   });
 
   view.bindPlayerMoveEvent((square) => {
@@ -133,19 +115,6 @@ function init() {
 
   // When the HTML document first loads, render the view based on the current state.
   view.render(store.game, store.stats);
-}
-
-function saveGameData(gameData) {
-  // Cek apakah permainan sedang berlangsung
-  const gameInProgress = localStorage.getItem("gameInProgress") === "true";
-
-  if (gameInProgress) {
-    // Simpan data permainan saat berlangsung
-    localStorage.setItem("gameData", JSON.stringify(gameData));
-  } else {
-    // Hapus data permainan jika permainan tidak berlangsung
-    localStorage.removeItem("gameData");
-  }
 }
 
 window.addEventListener("load", init);
