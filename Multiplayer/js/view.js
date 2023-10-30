@@ -19,6 +19,10 @@ export default class View {
 
     // Element lists
     this.$$.squares = this.#qsAll('[data-id="square"]');
+
+    // this.$.menuBtn.addEventListener("click", (event) => {
+    //   this.#toggleMenu();
+    // });
   }
 
   render(game, stats) {
@@ -38,33 +42,10 @@ export default class View {
       if (winner) {
         this.#openModal(`${winner.name} Menang!`);
         this.#showWinImage(); // Menampilkan gambar "Win.png"
-
-        // Perbarui skor pemain yang menang
-        if (winner.id === 1) {
-          playerWithStats[0].wins += 1;
-        } else if (winner.id === 2) {
-          playerWithStats[1].wins += 1;
-        }
       } else {
         this.#openModal("Seri!");
         this.#showDrawImage(); // Menampilkan gambar "Draw.png"
-
-        // Perbarui skor seri
-        stats.ties += 1;
-
-        localStorage.setItem("ties", stats.ties);
       }
-
-      // Perbarui skor di local storage
-      localStorage.setItem("p1Wins", playerWithStats[0].wins);
-      localStorage.setItem("p2Wins", playerWithStats[1].wins);
-      localStorage.setItem("ties", stats.ties);
-
-      console.log("Before reassignment");
-      console.log(playerWithStats[0].wins, playerWithStats[1].wins, stats.ties);
-      console.log("After reassignment");
-
-      this.#updateScoreboard(playerWithStats[0].wins, playerWithStats[1].wins, stats.ties);
       return;
     }
 
@@ -142,6 +123,26 @@ export default class View {
     this.$.modal.classList.add("hidden");
   }
 
+  //   #closeMenu() {
+  //     this.$.menuItems.classList.add("hidden");
+  //     this.$.menuBtn.classList.remove("border");
+
+  //     const icon = this.$.menuBtn.querySelector("i");
+
+  //     icon.classList.add("fa-chevron-down");
+  //     icon.classList.remove("fa-chevron-up");
+  //   }
+
+  //   #toggleMenu() {
+  //     this.$.menuItems.classList.toggle("hidden");
+  //     this.$.menuBtn.classList.toggle("border");
+
+  //     const icon = this.$.menuBtn.querySelector("i");
+
+  //     icon.classList.toggle("fa-chevron-down");
+  //     icon.classList.toggle("fa-chevron-up");
+  //   }
+
   #handlePlayerMove(squareEl, player) {
     const image = document.createElement("img");
     image.src = player.imageSrc; // Ganti dengan sumber gambar yang sesuai
@@ -154,6 +155,7 @@ export default class View {
 
     image.src = player.imageSrc;
 
+    //label.classList.add(player.colorClass);
     label.innerText = `Giliran ${player.name}`;
 
     this.$.turn.replaceChildren(image, label);
