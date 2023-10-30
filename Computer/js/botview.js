@@ -77,32 +77,16 @@ export default class View {
     this.$.newRoundBtn.addEventListener("click", handler);
   }
 
-  // bindPlayerMoveEvent(handler) {
-  //   this.$$.squares.forEach((square) => {
-  //     square.addEventListener("click", () => {
-  //       if (square.innerHTML === "") {
-  //         // Periksa apakah kotak kosong
-  //         handler(square);
-  //       }
-  //     });
-  //   });
-  // }
   bindPlayerMoveEvent(handler) {
-  this.$$.squares.forEach((square) => {
-    square.addEventListener("click", () => {
-      if (square.innerHTML === "") {
-        // Periksa apakah kotak kosong
-        handler(square);
-
-        // Setelah pemain mengklik kotak, Anda dapat menambahkan kode
-        // untuk mengisi kotak secara otomatis, misalnya, dengan "X" atau "O"
-        // di sini, tergantung pada aturan permainan.
-        // Contoh sederhana: Mengisi kotak dengan "X" setelah pemain mengklik.
-        square.innerHTML = "X";
-      }
+    this.$$.squares.forEach((square) => {
+      square.addEventListener("click", () => {
+        if (square.innerHTML === "") {
+          // Periksa apakah kotak kosong
+          handler(square);
+        }
+      });
     });
-  });
-}
+  }
 
   #updateScoreboard(p1Wins, p2Wins, ties) {
     this.$.p1Wins.innerText = `${p1Wins}`;
