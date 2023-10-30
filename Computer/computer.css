@@ -58,6 +58,9 @@ body {
   font-size: 25px;
   color: #bbff00;
 }
+.name-modal-contents i {
+  margin-right: 10px;
+}
 
 .name-modal-contents h2 {
   margin-top: 10px;
@@ -143,6 +146,10 @@ button:hover {
   text-align: center;
   margin-bottom: 30px;
   color: #bbff00;
+}
+
+.title i {
+  margin-right: 10px;
 }
 /* grid score */
 .grid-score {
