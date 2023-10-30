@@ -226,6 +226,29 @@ button:hover {
   }
 }
 
+@media (min-width: 768px) {
+  .grid-score {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(1, 80px);
+  }
+  .grid {
+    justify-content: center;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+  }
+  .score h6 {
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .score p {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+}
+
 .square {
   background-color: #002b5b;
   border: 5px solid #ffffff;
