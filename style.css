@@ -45,3 +45,8 @@
   background-color: #ffffff;
   color: #000000;
 }
+
+.table thead th,
+.table tbody td {
+  text-align: center;
+}
