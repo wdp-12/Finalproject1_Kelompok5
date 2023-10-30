@@ -209,7 +209,7 @@ function init() {
       player2Name: players[1].name,
       p1Wins: 0,
       p2Wins: 0,
-      ties: 0,
+      // ties: 0,
     };
     saveGameData(gameData);
   });
@@ -229,7 +229,7 @@ function init() {
       players[1].score = 0;
 
       // Reset draw score
-      stats.ties = 0;
+      // stats.ties = 0;
 
       // Update the view with the new scores
       view.render(store.game, stats);
@@ -245,7 +245,7 @@ function init() {
       player2Name: "",
       p1Wins: 0,
       p2Wins: 0,
-      ties: 0,
+      // ties: 0,
     });
   });
 
