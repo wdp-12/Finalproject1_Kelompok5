@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <audio src="audio/bgm.mp3" id="background"></audio>
     <!-- Modal for Player Names -->
     <div class="name-modal" data-id="name-modal">
       <div class="name-modal-contents">
@@ -76,6 +77,17 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function backgroundMusic() {
+        var backgroundMusic = document.getElementById("background");
+        backgroundMusic.play();
+        backgroundMusic.volume = 0.4;
+      }
+      window.addEventListener("load", function () {
+        backgroundMusic();
+      });
+    </script>
 
     <script src="js/script.js" type="module"></script>
   </body>
