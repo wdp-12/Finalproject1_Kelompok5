@@ -57,13 +57,18 @@ function init() {
       return;
     }
 
+    if (!player1Radio.checked && !player2Radio.checked) {
+      errorMessage.textContent = "Harap pilih giliran sebelum memulai permainan!";
+      return;
+    }
+
     errorMessage.textContent = "";
 
     if (player1Radio.checked) {
       players[0].name = playerName;
-      players[1].name = "Player 2";
+      players[1].name = "Computer";
     } else if (player2Radio.checked) {
-      players[0].name = "Player 1";
+      players[0].name = "Computer";
       players[1].name = playerName;
     }
 
