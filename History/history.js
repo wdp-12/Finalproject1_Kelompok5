@@ -12,6 +12,16 @@ document.getElementById("p1Wins").textContent = p1Wins || "0";
 document.getElementById("p2Wins").textContent = p2Wins || "0";
 document.getElementById("ties").textContent = ties || "0";
 
+// Update untuk tidak double 
+const historyModal = document.getElementById("historyModal");
+const closeButton = historyModal.querySelector(".my-btn");
+const showHistoryButton = document.querySelector('[data-bs-target="#historyModal"]');
+
+showHistoryButton.addEventListener("click", () => {
+  historyModal.style.display = "block";
+}
+);
+
 // Simpan data lama di history
 const history = JSON.parse(localStorage.getItem("history")) || [];
 
