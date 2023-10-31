@@ -14,7 +14,7 @@ function init() {
     },
     {
       id: 2,
-      name: gameInProgress ? localStorage.getItem("player2Name") : "Computer", // Use stored name if game is in progress, or "Player 2" as default
+      name: gameInProgress ? localStorage.getItem("player2Name") : "Player 2", // Use stored name if game is in progress, or "Player 2" as default
       imageSrc: "../../asset/O.png",
     },
   ];
