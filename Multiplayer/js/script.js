@@ -78,9 +78,6 @@ function init() {
 
   view.bindGameResetEvent(() => {
     store.reset();
-
-    // // Reset the game in progress when the game is reset
-    // localStorage.removeItem("gameInProgress");
   });
 
   view.bindNewRoundEvent((event) => {
@@ -88,10 +85,6 @@ function init() {
       // Clear the game state from local storage before resetting the game
       localStorage.removeItem("gameInProgress");
       store.newRound();
-
-      // Clear player scores when going back home
-      localStorage.removeItem("player1Score");
-      localStorage.removeItem("player2Score");
 
       // Reset player scores
       players[0].score = 0;
@@ -125,4 +118,3 @@ function init() {
 }
 
 window.addEventListener("load", init);
-

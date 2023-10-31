@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <link rel="icon" href="../asset/Logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/c021263beb.js" crossorigin="anonymous"></script>
+  </head>
 
-<head>
-  <title>Tic-Tac-Toe</title>
-  <link rel="icon" href="../asset/Logo.png" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="style.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/c021263beb.js" crossorigin="anonymous"></script>
-</head>
-
-<body class="my-primary">
-  <audio src="audio/background.mp3" id="background"></audio>
-  <audio src="audio/draw.mp3" id="button"></audio>
-  <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh">
-    <div class="col-12">
-      <div class="d-flex justify-content-center mb-5">
-        <img src="asset/Logo.png" alt="tic-tac-toe" class="Logo" />
-      </div>
-      <div class="row">
-        <div class="gap-3 col-12 mx-auto d-flex flex-column justify-content-center align-items-center">
-          <a class="my-btn" href="Computer/computer.html"><i class="fa-solid fa-robot"></i> Computer/BOT</a>
-          <a class="my-btn" href="Multiplayer/multiplayer.html"><i class="fa-solid fa-user-group"></i> Local
-            Multiplayer</a>
-          <a class="my-btn" href="History/history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
-          <!-- <a class="my-btn" href="History/history.html" data-bs-toggle="modal" data-bs-target="#historyModal">
-            <i class="fa-solid fa-clock-rotate-left"></i> History</a> -->
+  <body class="my-primary">
+    <audio src="audio/bgm.mp3" id="background" loop></audio>
+    <audio src="audio/button.mp3" id="button"></audio>
+    <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh">
+      <div class="col-12">
+        <div class="d-flex justify-content-center mb-5">
+          <img src="asset/Logo.png" alt="tic-tac-toe" class="Logo" />
+        </div>
+        <div class="row">
+          <div class="gap-3 col-12 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <a class="my-btn" href="Computer/computer.html"><i class="fa-solid fa-robot"></i> Computer/BOT</a>
+            <a class="my-btn" href="Multiplayer/multiplayer.html"><i class="fa-solid fa-user-group"></i> Local Multiplayer</a>
+            <a class="my-btn" href="#" data-bs-toggle="modal" data-bs-target="#historyModal"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
 
-  <script>
-    function backgroundMusic() {
-      var backgroundMusic = document.getElementById('background');
-      backgroundMusic.play();
-      backgroundMusic.volume = 0.4
-    }
-    window.addEventListener('load', function () {
-      backgroundMusic()
-    })
+    <!--history modal -->
+    <div id="historyModal" class="modal" style="display: none">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><i class="fa-solid fa-clock-rotate-left me-3"></i> History Permainan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="table-responsive history">
+              <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Nama Player 1</th>
+                    <th scope="col">Menang Player 1</th>
+                    <th scope="col">Seri</th>
+                    <th scope="col">Menang Player 2</th>
+                    <th scope="col">Nama Player 2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td scope="row" id="player1Name">-</td>
+                    <td scope="row" id="p1Wins">0</td>
+                    <td scope="row" id="ties">0</td>
+                    <td scope="row" id="p2Wins">0</td>
+                    <td scope="row" id="player2Name">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function backgroundMusic() {
+        var backgroundMusic = document.getElementById("background");
+        backgroundMusic.play();
+        backgroundMusic.volume = 0.4;
+      }
+      window.addEventListener("load", function () {
+        backgroundMusic();
+      });
 
-    function buttonTicTac() {
-      var buttonTicTac = document.getElementById('button');
-      buttonTicTac.play();
-      buttonTicTac.volume = 0.6
-    }
-
-  </script>
-
-  <script src="history.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-</body>
-
+      function buttonTicTac() {
+        var buttonTicTac = document.getElementById("button");
+        buttonTicTac.play();
+        buttonTicTac.volume = 0.6;
+      }
+    </script>
+    <script src="history.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
 </html>

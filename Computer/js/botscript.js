@@ -45,22 +45,32 @@ function init() {
   });
 
   view.bindStartGameEvent(() => {
-    const player1NameInput = document.getElementById("player1Name");
-    const player2NameInput = document.getElementById("player2Name");
+    const player1Radio = document.getElementById("player1");
+    const player2Radio = document.getElementById("player2");
+    const player1NameInput = document.getElementById("playerName");
     const errorMessage = document.querySelector("[data-id='error-message']");
 
-    const player1Name = player1NameInput.value;
-    const player2Name = player2NameInput.value;
+    const playerName = player1NameInput.value;
 
-    if (!player1Name || !player2Name) {
+    if (!playerName) {
       errorMessage.textContent = "Harap isi nama player sebelum memulai permainan!";
+      return;
+    }
+
+    if (!player1Radio.checked && !player2Radio.checked) {
+      errorMessage.textContent = "Harap pilih giliran sebelum memulai permainan!";
       return;
     }
 
     errorMessage.textContent = "";
 
-    players[0].name = player1Name;
-    players[1].name = player2Name;
+    if (player1Radio.checked) {
+      players[0].name = playerName;
+      players[1].name = "Computer";
+    } else if (player2Radio.checked) {
+      players[0].name = "Computer";
+      players[1].name = playerName;
+    }
 
     p1NameElement.textContent = players[0].name;
     p2NameElement.textContent = players[1].name;
@@ -78,9 +88,6 @@ function init() {
 
   view.bindGameResetEvent(() => {
     store.reset();
-
-    // // Reset the game in progress when the game is reset
-    // localStorage.removeItem("gameInProgress");
   });
 
   view.bindNewRoundEvent((event) => {
@@ -88,10 +95,6 @@ function init() {
       // Clear the game state from local storage before resetting the game
       localStorage.removeItem("gameInProgress");
       store.newRound();
-
-      // Clear player scores when going back home
-      localStorage.removeItem("player1Score");
-      localStorage.removeItem("player2Score");
 
       // Reset player scores
       players[0].score = 0;
@@ -125,4 +128,3 @@ function init() {
 }
 
 window.addEventListener("load", init);
-
