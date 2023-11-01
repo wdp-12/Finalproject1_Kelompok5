@@ -10,6 +10,20 @@
   </head>
   <body>
     <audio src="audio/bgm.mp3" id="background"></audio>
+
+    <section>
+      <div class="set">
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+      </div>
+    </section>
+
     <!-- Modal for Player Names -->
     <div class="name-modal" data-id="name-modal">
       <div class="name-modal-contents">
@@ -24,48 +38,50 @@
       </div>
     </div>
 
-    <div>
-      <h1 class="title"><i class="fa-solid fa-user-group"></i> Local Multiplayer</h1>
+    <div class="content-container">
+      <div>
+        <h1 class="title"><i class="fa-solid fa-user-group"></i> Local Multiplayer</h1>
+      </div>
+
+      <main>
+        <div class="grid-score">
+          <!-- Scoreboard -->
+          <div class="score" style="background-color: #271a7a; color: #ffffff">
+            <h6 data-id="p1-name">Player 1</h6>
+            <span data-id="p1-wins">0</span>
+            <p class="score-info">Menang</p>
+          </div>
+          <div class="score" style="background-color: #ffffff; color: #000000">
+            <p>Seri</p>
+            <span data-id="ties">0</span>
+          </div>
+          <div class="score" style="background-color: #ff6600; color: #ffffff">
+            <h6 data-id="p2-name">Player 2</h6>
+            <span data-id="p2-wins">0</span>
+            <p class="score-info">Menang</p>
+          </div>
+        </div>
+
+        <!-- Turn indicator -->
+        <div class="turn" data-id="turn">
+          <img src="../asset/X.png" alt="" />
+          <p class="">Giliran Player 1</p>
+        </div>
+
+        <div class="grid" data-id="grid">
+          <!-- Game board -->
+          <div id="1" class="square" data-id="square"></div>
+          <div id="2" class="square" data-id="square"></div>
+          <div id="3" class="square" data-id="square"></div>
+          <div id="4" class="square" data-id="square"></div>
+          <div id="5" class="square" data-id="square"></div>
+          <div id="6" class="square" data-id="square"></div>
+          <div id="7" class="square" data-id="square"></div>
+          <div id="8" class="square" data-id="square"></div>
+          <div id="9" class="square" data-id="square"></div>
+        </div>
+      </main>
     </div>
-
-    <main>
-      <div class="grid-score">
-        <!-- Scoreboard -->
-        <div class="score" style="background-color: #271a7a; color: #ffffff">
-          <h6 data-id="p1-name">Player 1</h6>
-          <span data-id="p1-wins">0</span>
-          <p class="score-info">Menang</p>
-        </div>
-        <div class="score" style="background-color: #ffffff; color: #000000">
-          <p>Seri</p>
-          <span data-id="ties">0</span>
-        </div>
-        <div class="score" style="background-color: #ff6600; color: #ffffff">
-          <h6 data-id="p2-name">Player 2</h6>
-          <span data-id="p2-wins">0</span>
-          <p class="score-info">Menang</p>
-        </div>
-      </div>
-
-      <!-- Turn indicator -->
-      <div class="turn" data-id="turn">
-        <img src="../asset/X.png" alt="" />
-        <p class="">Giliran Player 1</p>
-      </div>
-
-      <div class="grid" data-id="grid">
-        <!-- Game board -->
-        <div id="1" class="square" data-id="square"></div>
-        <div id="2" class="square" data-id="square"></div>
-        <div id="3" class="square" data-id="square"></div>
-        <div id="4" class="square" data-id="square"></div>
-        <div id="5" class="square" data-id="square"></div>
-        <div id="6" class="square" data-id="square"></div>
-        <div id="7" class="square" data-id="square"></div>
-        <div id="8" class="square" data-id="square"></div>
-        <div id="9" class="square" data-id="square"></div>
-      </div>
-    </main>
 
     <!-- Modal that opens when game ends -->
     <div class="modal hidden" data-id="modal">
