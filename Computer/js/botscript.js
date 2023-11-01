@@ -157,8 +157,8 @@ function computerMove(store, view) {
   const currentPlayer = game.currentPlayer;
   const otherPlayer = store.players.find((player) => player !== currentPlayer);
 
-  if (isWinner(game, currentPlayer) || isWinner(game, otherPlayer)) {
-    return; // Stop the computer from making a move
+  if (isWinner(game, currentPlayer) || isWinner(game, otherPlayer) || game.status.isComplete) {
+    return; // Stop the computer from making a move if the game is complete or one of the players has won
   }
 
   // Fungsi untuk mendeteksi ancaman pemenang dan memblokir
