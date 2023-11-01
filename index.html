@@ -14,7 +14,7 @@
 
 <body class="my-primary">
   <audio src="audio/background.mp3" id="background"></audio>
-  <audio src="audio/draw.mp3" id="button"></audio>
+  <audio src="audio/button.mp3" id="button"></audio>
   <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh">
     <div class="col-12">
       <div class="d-flex justify-content-center mb-5">
@@ -69,51 +69,15 @@
   </div>
   <audio src="audio/button.mp3" id="button"></audio>
   <script>
-    var audio = document.createElement("AUDIO");
+    var audio = document.createElement("Background");
     document.body.appendChild(audio);
-    audio.src = "audio/bgm.mp3";
-
-    document.body.addEventListener("mousemove", function () {
-      audio.play();
-    });
+    audio.src = "audio/background.mp3";
 
     function buttonTicTac() {
       var buttonAudio = document.getElementById("button");
       buttonAudio.play();
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      // Mendapatkan referensi ke tombol-tombol
-      var computerButton = document.getElementById("computerButton");
-      var multiplayerButton = document.getElementById("multiplayerButton");
-
-      // Menambahkan event listener untuk tombol-tombol
-      computerButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-        buttonTicTac(); // Memainkan suara tombol
-
-        // Menunda pengalihan ke halaman selama 500ms (misalnya)
-        setTimeout(function () {
-          window.location.href = "Computer/computer.html";
-        }, 100);
-      });
-
-      multiplayerButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-        buttonTicTac(); // Memainkan suara tombol
-
-        // Menunda pengalihan ke halaman selama 500ms (misalnya)
-        setTimeout(function () {
-          window.location.href = "Multiplayer/multiplayer.html";
-        }, 100);
-      });
-    });
-
-    var historyButton = document.querySelector("a[data-bs-toggle='modal'][data-bs-target='#historyModal']");
-    var close = document.querySelector("button.btn-close");
-
-    historyButton.addEventListener("click", buttonTicTac);
-    close.addEventListener("click", buttonTicTac);
   </script>
   <script src="history.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
