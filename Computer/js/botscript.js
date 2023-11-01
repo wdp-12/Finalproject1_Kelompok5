@@ -140,9 +140,15 @@ function init() {
         computerMove(store, view);
       }, 1000); // Tambahkan penundaan untuk efek visual
     }
+    playMoveSound();
   });
   // When the HTML document first loads, render the view based on the current state.
   view.render(store.game, store.stats);
+}
+
+function playMoveSound() {
+  var moveSound = document.getElementById("moveSound");
+  moveSound.play();
 }
 
 function computerMove(store, view) {
