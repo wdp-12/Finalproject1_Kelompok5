@@ -78,9 +78,6 @@ function init() {
 
   view.bindGameResetEvent(() => {
     store.reset();
-
-    // // Reset the game in progress when the game is reset
-    // localStorage.removeItem("gameInProgress");
   });
 
   view.bindNewRoundEvent((event) => {
@@ -88,10 +85,6 @@ function init() {
       // Clear the game state from local storage before resetting the game
       localStorage.removeItem("gameInProgress");
       store.newRound();
-
-      // Clear player scores when going back home
-      localStorage.removeItem("player1Score");
-      localStorage.removeItem("player2Score");
 
       // Reset player scores
       players[0].score = 0;
@@ -118,11 +111,17 @@ function init() {
     }
 
     store.playerMove(+square.id);
+
+    playMoveSound();
   });
 
   // When the HTML document first loads, render the view based on the current state.
   view.render(store.game, store.stats);
 }
 
-window.addEventListener("load", init);
+function playMoveSound() {
+  var moveSound = document.getElementById("moveSound");
+  moveSound.play();
+}
 
+window.addEventListener("load", init);

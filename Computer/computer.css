@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
-
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style: none;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -29,7 +23,6 @@ body {
   align-items: center;
   overflow: hidden;
 }
-
 /* name modal */
 .name-modal {
   padding-top: 50px;
@@ -46,7 +39,7 @@ body {
 }
 
 .name-modal-contents {
-  height: 450px;
+  height: 470px;
   width: 100%;
   max-width: 350px;
   background-color: #002b5b;
@@ -65,15 +58,13 @@ body {
   font-size: 25px;
   color: #bbff00;
 }
+.name-modal-contents i {
+  margin-right: 10px;
+}
 
 .name-modal-contents h2 {
   margin-top: 10px;
   font-size: 20px;
-}
-
-.name-modal-contents p {
-  font-size: 15px;
-  font-weight: bold;
 }
 
 .name-modal input {
@@ -81,6 +72,41 @@ body {
   height: 30px;
   border-radius: 5px;
   text-align: center;
+}
+
+.play-option {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.play-option p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.option {
+  width: 60px;
+  height: 60px;
+}
+
+.option-1 {
+  margin-right: 10px;
+}
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type="radio"] + img {
+  cursor: pointer;
+}
+
+[type="radio"]:checked + img {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  outline: 2px solid rgb(255, 255, 255);
 }
 
 .name-modal-contents button {
@@ -122,10 +148,19 @@ button:hover {
   color: #bbff00;
 }
 
+.title i {
+  margin-right: 10px;
+}
+
+.content-container {
+  position: relative;
+  z-index: 0; /* Place your content in front of the animation */
+}
+
 /* grid score */
 .grid-score {
   display: grid;
-  grid-template-columns: repeat(3, 150px);
+  grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(1, 100px);
   gap: 9px;
   margin-bottom: 50px;
@@ -205,36 +240,13 @@ button:hover {
 /* grid tic-tac-toe */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   gap: 9px;
   margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-  .grid-score {
-    grid-template-columns: repeat(3, 90px);
-    grid-template-rows: repeat(1, 80px);
-  }
-  .grid {
-    justify-content: center;
-    grid-template-columns: repeat(3, 90px);
-    grid-template-rows: repeat(3, 90px);
-  }
-  .score h6 {
-    font-size: 10px;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .score p {
-    font-size: 10px;
-    font-weight: 500;
-    margin-top: 2px;
-  }
-}
-
-@media (min-width: 768px) {
   .grid-score {
     grid-template-columns: repeat(3, 90px);
     grid-template-rows: repeat(1, 80px);
@@ -329,7 +341,7 @@ p[data-id="modal-text"] img {
   margin-top: 10px;
   padding: 10px;
   background-color: #57c5b6;
-  color: #ffffff;
+   color: #ffffff;
   border-radius: 5px;
   width: 130px;
   font-weight: bold;
@@ -340,4 +352,95 @@ p[data-id="modal-text"] img {
 .modal-contents a:hover {
   background-color: #ffffff;
   color: #000000;
+}
+
+/* ANIMATION BACKGROUND */
+section .set {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+section .set div {
+  position: absolute;
+  display: block;
+}
+
+section .set div:nth-child(1) {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+  z-index: 4;
+}
+
+section .set div:nth-child(2) {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+  z-index: 2;
+}
+
+section .set div:nth-child(3) {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+  z-index: 1;
+}
+
+section .set div:nth-child(4) {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+}
+
+section .set div:nth-child(5) {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+}
+
+section .set div:nth-child(6) {
+  left: 0%;
+  animation: animate 12s linear infinite;
+}
+
+section .set div:nth-child(7) {
+  left: 15%;
+  animation: animate 14s linear infinite;
+}
+
+section .set div:nth-child(8) {
+  left: 60%;
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -10%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(-20px) rotate(225deg);
+  }
 }
