@@ -1,6 +1,3 @@
-// This import is only for jsdoc typings and intellisense
-import Store from "./botstore.js";
-
 export default class View {
   $ = {};
   $$ = {};
@@ -173,13 +170,5 @@ export default class View {
     if (!elList) throw new Error("Could not find elements");
 
     return elList;
-  }
-
-  #delegate(el, selector, eventKey, handler) {
-    el.addEventListener(eventKey, (event) => {
-      if (event.target.matches(selector)) {
-        handler(event.target);
-      }
-    });
   }
 }
