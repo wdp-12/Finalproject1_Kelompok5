@@ -1,6 +1,3 @@
-// This import is only for jsdoc typings and intellisense
-import Store from "./botstore.js";
-
 export default class View {
   $ = {};
   $$ = {};
@@ -16,6 +13,8 @@ export default class View {
     this.$.p2Wins = this.#qs('[data-id="p2-wins"]');
     this.$.ties = this.#qs('[data-id="ties"]');
     this.$.grid = this.#qs('[data-id="grid"]');
+    this.$.winningSound = document.getElementById("winningSound");
+    this.$.drawSound = document.getElementById("drawSound");
 
     // Element lists
     this.$$.squares = this.#qsAll('[data-id="square"]');
@@ -39,6 +38,7 @@ export default class View {
         this.#openModal(`${winner.name} Menang!`);
         this.#showWinImage(); // Menampilkan gambar "Win.png"
 
+        this.$.winningSound.play();
         // Perbarui skor pemain yang menang
         if (winner.id === 1) {
           playerWithStats[0].wins += 1;
@@ -49,6 +49,7 @@ export default class View {
         this.#openModal("Seri!");
         this.#showDrawImage(); // Menampilkan gambar "Draw.png"
 
+        this.$.drawSound.play();
         // Perbarui skor seri
         stats.ties += 1;
 
@@ -173,13 +174,5 @@ export default class View {
     if (!elList) throw new Error("Could not find elements");
 
     return elList;
-  }
-
-  #delegate(el, selector, eventKey, handler) {
-    el.addEventListener(eventKey, (event) => {
-      if (event.target.matches(selector)) {
-        handler(event.target);
-      }
-    });
   }
 }

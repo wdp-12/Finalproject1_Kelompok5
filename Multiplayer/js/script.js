@@ -111,10 +111,17 @@ function init() {
     }
 
     store.playerMove(+square.id);
+
+    playMoveSound();
   });
 
   // When the HTML document first loads, render the view based on the current state.
   view.render(store.game, store.stats);
+}
+
+function playMoveSound() {
+  var moveSound = document.getElementById("moveSound");
+  moveSound.play();
 }
 
 window.addEventListener("load", init);

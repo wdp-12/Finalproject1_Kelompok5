@@ -59,6 +59,6 @@ const isDuplicate = history.some((gameData) => {
 });
 
 if (!isDuplicate) {
-  history.push(newGameData);
+  history.unshift(newGameData);
   localStorage.setItem("history", JSON.stringify(history));
 }

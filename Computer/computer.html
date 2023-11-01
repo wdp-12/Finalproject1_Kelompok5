@@ -10,6 +10,19 @@
     <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <section>
+      <div class="set">
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+      </div>
+    </section>
+
     <!-- Modal for Player Names -->
     <div class="name-modal" data-id="name-modal">
       <div class="name-modal-contents">
@@ -34,59 +47,111 @@
       </div>
     </div>
 
-    <div>
-      <h1 class="title"><i class="fa-solid fa-robot"></i> Computer</h1>
+    <div class="content-container">
+      <div>
+        <h1 class="title"><i class="fa-solid fa-robot"></i> Computer</h1>
+      </div>
+
+      <main>
+        <div class="grid-score">
+          <!-- Scoreboard -->
+          <div class="score" style="background-color: #271a7a; color: #ffffff">
+            <h6 data-id="p1-name">Player 1</h6>
+            <span data-id="p1-wins">0</span>
+            <p class="score-info">Menang</p>
+          </div>
+          <div class="score" style="background-color: #ffffff; color: #000000">
+            <p>Seri</p>
+            <span data-id="ties">0</span>
+          </div>
+          <div class="score" style="background-color: #ff6600; color: #ffffff">
+            <h6 data-id="p2-name">Player 2</h6>
+            <span data-id="p2-wins">0</span>
+            <p class="score-info">Menang</p>
+          </div>
+        </div>
+
+        <!-- Turn indicator -->
+        <div class="turn" data-id="turn">
+          <img src="../asset/X.png" alt="" />
+          <p class="">Giliran Player 1</p>
+        </div>
+
+        <div class="grid" data-id="grid">
+          <!-- Game board -->
+          <div id="1" class="square" data-id="square"></div>
+          <div id="2" class="square" data-id="square"></div>
+          <div id="3" class="square" data-id="square"></div>
+          <div id="4" class="square" data-id="square"></div>
+          <div id="5" class="square" data-id="square"></div>
+          <div id="6" class="square" data-id="square"></div>
+          <div id="7" class="square" data-id="square"></div>
+          <div id="8" class="square" data-id="square"></div>
+          <div id="9" class="square" data-id="square"></div>
+        </div>
+      </main>
     </div>
-
-    <main>
-      <div class="grid-score">
-        <!-- Scoreboard -->
-        <div class="score" style="background-color: #271a7a; color: #ffffff">
-          <h6 data-id="p1-name">Player 1</h6>
-          <span data-id="p1-wins">0</span>
-          <p class="score-info">Menang</p>
-        </div>
-        <div class="score" style="background-color: #ffffff; color: #000000">
-          <p>Seri</p>
-          <span data-id="ties">0</span>
-        </div>
-        <div class="score" style="background-color: #ff6600; color: #ffffff">
-          <h6 data-id="p2-name">Player 2</h6>
-          <span data-id="p2-wins">0</span>
-          <p class="score-info">Menang</p>
-        </div>
-      </div>
-
-      <!-- Turn indicator -->
-      <div class="turn" data-id="turn">
-        <img src="../asset/X.png" alt="" />
-        <p class="">Giliran Player 1</p>
-      </div>
-
-      <div class="grid" data-id="grid">
-        <!-- Game board -->
-        <div id="1" class="square" data-id="square"></div>
-        <div id="2" class="square" data-id="square"></div>
-        <div id="3" class="square" data-id="square"></div>
-        <div id="4" class="square" data-id="square"></div>
-        <div id="5" class="square" data-id="square"></div>
-        <div id="6" class="square" data-id="square"></div>
-        <div id="7" class="square" data-id="square"></div>
-        <div id="8" class="square" data-id="square"></div>
-        <div id="9" class="square" data-id="square"></div>
-      </div>
-    </main>
 
     <!-- Modal that opens when game ends -->
     <div class="modal hidden" data-id="modal">
       <div class="modal-contents">
         <p data-id="modal-text">Player 1 Menang</p>
         <div class="button-group">
-          <a data-id="modal-btn">Play Again</a>
-          <a data-id="new-round-btn" class="back-home-btn" href="../index.html">Back Home</a>
+          <a data-id="modal-btn" id="playAgainButton">Play Again</a>
+          <a data-id="new-round-btn" class="back-home-btn" href="../index.html" id="backHomeButton">Back Home</a>
         </div>
       </div>
     </div>
+    <audio src="../audio/button.mp3" id="button"></audio>
+    <audio id="winningSound" src="../audio/winning.mp3"></audio>
+    <audio id="drawSound" src="../audio/draw.mp3"></audio>
+    <audio id="moveSound" src="../audio/game.mp3"></audio>
+    <script>
+      var audio = document.createElement("AUDIO");
+      document.body.appendChild(audio);
+      audio.src = "../audio/bgm2.mp3";
+      audio.volume = 0.05;
+
+      document.body.addEventListener("mousemove", function () {
+        audio.play();
+      });
+
+      function buttonTicTac() {
+        var buttonAudio = document.getElementById("button");
+        buttonAudio.play();
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mendapatkan referensi ke tombol-tombol
+        var backHomeButton = document.getElementById("backHomeButton");
+        var player1Radio = document.getElementById("player1");
+        var player2Radio = document.getElementById("player2");
+
+        // Menambahkan event listener untuk tombol-tombol
+        backHomeButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
+          buttonTicTac(); // Memainkan suara tombol
+
+          // Menunda pengalihan ke halaman selama 500ms (misalnya)
+          setTimeout(function () {
+            window.location.href = "../index.html";
+          }, 100);
+        });
+        player1Radio.addEventListener("change", function () {
+          buttonTicTac(); // Memainkan suara tombol saat memilih "X"
+        });
+
+        player2Radio.addEventListener("change", function () {
+          buttonTicTac(); // Memainkan suara tombol saat memilih "O"
+        });
+      });
+
+      var startButton = document.getElementById("startGameBtn");
+      var playAgainButtton = document.getElementById("playAgainButton");
+
+      startButton.addEventListener("click", buttonTicTac);
+      playAgainButtton.addEventListener("click", buttonTicTac);
+    </script>
     <script src="js/botscript.js" type="module"></script>
   </body>
 </html>

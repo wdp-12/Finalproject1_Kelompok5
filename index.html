@@ -11,17 +11,27 @@
   </head>
 
   <body class="my-primary">
-    <audio src="audio/bgm.mp3" id="background" loop></audio>
-    <audio src="audio/button.mp3" id="button"></audio>
-    <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh">
+    <section>
+      <div class="set">
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/X.png" width="100px" height="100px" /></div>
+        <div><img src="../asset/O.png" width="100px" height="100px" /></div>
+      </div>
+    </section>
+    <div class="main container-fluid d-flex align-items-center justify-content-center" style="height: 100vh">
       <div class="col-12">
         <div class="d-flex justify-content-center mb-5">
           <img src="asset/Logo.png" alt="tic-tac-toe" class="Logo" />
         </div>
         <div class="row">
           <div class="gap-3 col-12 mx-auto d-flex flex-column justify-content-center align-items-center">
-            <a class="my-btn" href="Computer/computer.html"><i class="fa-solid fa-robot"></i> Computer/BOT</a>
-            <a class="my-btn" href="Multiplayer/multiplayer.html"><i class="fa-solid fa-user-group"></i> Local Multiplayer</a>
+            <a class="my-btn" href="Computer/computer.html" id="computerButton"><i class="fa-solid fa-robot"></i> Computer/BOT</a>
+            <a class="my-btn" href="Multiplayer/multiplayer.html" id="multiplayerButton"><i class="fa-solid fa-user-group"></i> Local Multiplayer</a>
             <a class="my-btn" href="#" data-bs-toggle="modal" data-bs-target="#historyModal"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
           </div>
         </div>
@@ -63,20 +73,53 @@
         </div>
       </div>
     </div>
+    <audio src="audio/button.mp3" id="button"></audio>
     <script>
-      function backgroundMusic() {
-        var backgroundMusic = document.getElementById("background");
-        backgroundMusic.play();
-        backgroundMusic.volume = 0.4;
-      }
-      window.addEventListener("load", function () {
-        backgroundMusic();
+      var audio = document.createElement("AUDIO");
+      document.body.appendChild(audio);
+      audio.src = "audio/bgm.mp3";
+
+      document.body.addEventListener("mousemove", function () {
+        audio.play();
       });
 
       function buttonTicTac() {
-        var buttonTicTac = document.getElementById("button");
-        buttonTicTac.play();
+        var buttonAudio = document.getElementById("button");
+        buttonAudio.play();
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mendapatkan referensi ke tombol-tombol
+        var computerButton = document.getElementById("computerButton");
+        var multiplayerButton = document.getElementById("multiplayerButton");
+
+        // Menambahkan event listener untuk tombol-tombol
+        computerButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
+          buttonTicTac(); // Memainkan suara tombol
+
+          // Menunda pengalihan ke halaman selama 500ms (misalnya)
+          setTimeout(function () {
+            window.location.href = "Computer/computer.html";
+          }, 100);
+        });
+
+        multiplayerButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
+          buttonTicTac(); // Memainkan suara tombol
+
+          // Menunda pengalihan ke halaman selama 500ms (misalnya)
+          setTimeout(function () {
+            window.location.href = "Multiplayer/multiplayer.html";
+          }, 100);
+        });
+      });
+
+      var historyButton = document.querySelector("a[data-bs-toggle='modal'][data-bs-target='#historyModal']");
+      var close = document.querySelector("button.btn-close");
+
+      historyButton.addEventListener("click", buttonTicTac);
+      close.addEventListener("click", buttonTicTac);
     </script>
     <script src="history.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
