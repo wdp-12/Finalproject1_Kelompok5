@@ -95,13 +95,13 @@
     </div>
 
     <script>
-      function backgroundMusic() {
-        var backgroundMusic = document.getElementById("background");
-        backgroundMusic.play();
-        backgroundMusic.volume = 0.4;
-      }
-      window.addEventListener("load", function () {
-        backgroundMusic();
+      var audio = document.createElement("AUDIO");
+      document.body.appendChild(audio);
+      audio.src = "../audio/bgm2.mp3";
+      audio.volume = 0.05;
+
+      document.body.addEventListener("mousemove", function () {
+        audio.play();
       });
     </script>
 
