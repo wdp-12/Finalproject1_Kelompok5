@@ -74,13 +74,13 @@ export default class View {
 
   #showWinImage() {
     const image = document.createElement("img");
-    image.src = "../../asset/Win.png"; // Ganti dengan path yang sesuai
+    image.src = "../asset/Win.png"; // Ganti dengan path yang sesuai
     this.$.modalText.appendChild(image);
   }
 
   #showDrawImage() {
     const image = document.createElement("img");
-    image.src = "../../asset/Draw.png"; // Ganti dengan path yang sesuai
+    image.src = "../asset/Draw.png"; // Ganti dengan path yang sesuai
     this.$.modalText.appendChild(image);
   }
 
