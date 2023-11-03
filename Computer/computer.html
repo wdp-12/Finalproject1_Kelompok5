@@ -122,27 +122,24 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Mendapatkan referensi ke tombol-tombol
         var backHomeButton = document.getElementById("backHomeButton");
         var player1Radio = document.getElementById("player1");
         var player2Radio = document.getElementById("player2");
 
-        // Menambahkan event listener untuk tombol-tombol
         backHomeButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-          buttonTicTac(); // Memainkan suara tombol
+          event.preventDefault();
+          buttonTicTac();
 
-          // Menunda pengalihan ke halaman selama 500ms (misalnya)
           setTimeout(function () {
             window.location.href = "../index.html";
           }, 100);
         });
         player1Radio.addEventListener("change", function () {
-          buttonTicTac(); // Memainkan suara tombol saat memilih "X"
+          buttonTicTac();
         });
 
         player2Radio.addEventListener("change", function () {
-          buttonTicTac(); // Memainkan suara tombol saat memilih "O"
+          buttonTicTac();
         });
       });
 
