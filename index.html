@@ -88,6 +88,33 @@
         buttonTicTac.play();
         buttonTicTac.volume = 0.6;
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mendapatkan referensi ke tombol-tombol
+        var computerButton = document.getElementById("computerButton");
+        var multiplayerButton = document.getElementById("multiplayerButton");
+
+        // Menambahkan event listener untuk tombol-tombol
+        computerButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
+          buttonTicTac(); // Memainkan suara tombol
+
+          // Menunda pengalihan ke halaman selama 500ms (misalnya)
+          setTimeout(function () {
+            window.location.href = "Computer/computer.html";
+          }, 100);
+        });
+
+        multiplayerButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
+          buttonTicTac(); // Memainkan suara tombol
+
+          // Menunda pengalihan ke halaman selama 500ms (misalnya)
+          setTimeout(function () {
+            window.location.href = "Multiplayer/multiplayer.html";
+          }, 100);
+        });
+      });
     </script>
 
     <script src="history.js"></script>
