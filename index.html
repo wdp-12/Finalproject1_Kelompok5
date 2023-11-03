@@ -90,31 +90,33 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Mendapatkan referensi ke tombol-tombol
         var computerButton = document.getElementById("computerButton");
         var multiplayerButton = document.getElementById("multiplayerButton");
 
-        // Menambahkan event listener untuk tombol-tombol
         computerButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-          buttonTicTac(); // Memainkan suara tombol
+          event.preventDefault();
+          buttonTicTac();
 
-          // Menunda pengalihan ke halaman selama 500ms (misalnya)
           setTimeout(function () {
             window.location.href = "Computer/computer.html";
           }, 100);
         });
 
         multiplayerButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-          buttonTicTac(); // Memainkan suara tombol
+          event.preventDefault();
+          buttonTicTac();
 
-          // Menunda pengalihan ke halaman selama 500ms (misalnya)
           setTimeout(function () {
             window.location.href = "Multiplayer/multiplayer.html";
           }, 100);
         });
       });
+
+      var historyButton = document.querySelector("a[data-bs-toggle='modal'][data-bs-target='#historyModal']");
+      var close = document.querySelector("button.btn-close");
+
+      historyButton.addEventListener("click", buttonTicTac);
+      close.addEventListener("click", buttonTicTac);
     </script>
 
     <script src="history.js"></script>

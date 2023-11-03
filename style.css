@@ -3,11 +3,11 @@
 }
 
 body {
-  overflow: hidden; /* Mengunci overflow agar tidak dapat di-scroll ke bawah */
+  overflow: hidden;
 }
 .main {
-  position: relative; /* Mengatur posisi relatif untuk elemen .container */
-  z-index: 1; /* Mengatur z-index menjadi 1 agar elemen .container berada di depan elemen .set */
+  position: relative;
+  z-index: 1;
 }
 
 .my-primary {

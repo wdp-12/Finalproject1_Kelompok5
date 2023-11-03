@@ -36,7 +36,7 @@ export default class View {
     if (isComplete) {
       if (winner) {
         this.#openModal(`${winner.name} Menang!`);
-        this.#showWinImage(); // Menampilkan gambar "Win.png"
+        this.#showWinImage();
 
         this.$.winningSound.play();
         // Perbarui skor pemain yang menang
@@ -47,7 +47,7 @@ export default class View {
         }
       } else {
         this.#openModal("Seri!");
-        this.#showDrawImage(); // Menampilkan gambar "Draw.png"
+        this.#showDrawImage();
 
         this.$.drawSound.play();
         // Perbarui skor seri
@@ -74,13 +74,13 @@ export default class View {
 
   #showWinImage() {
     const image = document.createElement("img");
-    image.src = "../asset/Win.png"; // Ganti dengan path yang sesuai
+    image.src = "../asset/Win.png";
     this.$.modalText.appendChild(image);
   }
 
   #showDrawImage() {
     const image = document.createElement("img");
-    image.src = "../asset/Draw.png"; // Ganti dengan path yang sesuai
+    image.src = "../asset/Draw.png";
     this.$.modalText.appendChild(image);
   }
 
@@ -101,7 +101,6 @@ export default class View {
     this.$$.squares.forEach((square) => {
       square.addEventListener("click", () => {
         if (square.innerHTML === "") {
-          // Periksa apakah kotak kosong
           handler(square);
         }
       });
@@ -145,7 +144,7 @@ export default class View {
 
   #handlePlayerMove(squareEl, player) {
     const image = document.createElement("img");
-    image.src = player.imageSrc; // Ganti dengan sumber gambar yang sesuai
+    image.src = player.imageSrc;
     squareEl.replaceChildren(image);
   }
 

@@ -113,15 +113,12 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Mendapatkan referensi ke tombol-tombol
         var backHomeButton = document.getElementById("backHomeButton");
 
-        // Menambahkan event listener untuk tombol-tombol
         backHomeButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Menghentikan pengalihan ke halaman baru
-          buttonTicTac(); // Memainkan suara tombol
+          event.preventDefault();
+          buttonTicTac();
 
-          // Menunda pengalihan ke halaman selama 500ms (misalnya)
           setTimeout(function () {
             window.location.href = "../index.html";
           }, 100);

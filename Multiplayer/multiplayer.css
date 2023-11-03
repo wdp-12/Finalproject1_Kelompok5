@@ -124,7 +124,7 @@ button:hover {
 
 .content-container {
   position: relative;
-  z-index: 0; /* Place your content in front of the animation */
+  z-index: 0;
 }
 
 /* grid score */
